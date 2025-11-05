@@ -1,43 +1,19 @@
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import Layout from './Layout';
+import IndexPage from './pages/IndexPage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 
 const App = () => {
 	return (
-		<main>
-			<header>
-				<a href='' className='logo'>
-					Blog App
-				</a>
-				<nav>
-					<a href=''>Login</a>
-					<a href=''>Register</a>
-				</nav>
-			</header>
-			<div className='post'>
-				<div className='image'>
-					<a href=''>
-						<img src='/blog.jpg' alt='' />
-					</a>
-				</div>
-				<div className='texts'>
-					<a href=''>
-						<h2>
-							Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-							Amet,harum.
-						</h2>
-					</a>
-					<p className='info'>
-						<a className='author'>GrimWebDeveloper</a>
-						<time>2023-08-01T12:00:00.000Z</time>
-					</p>
-					<p className='summary'>
-						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi quis
-						laboriosam nobis numquam consectetur praesentium explicabo
-						necessitatibus accusantium iusto? Omnis at facilis doloribus minus
-						error amet nesciunt reiciendis debitis hic.
-					</p>
-				</div>
-			</div>
-		</main>
+		<Routes>
+			<Route path='/' element={<Layout />}>
+				<Route index element={<IndexPage />} />
+				<Route path='/login' element={<LoginPage />} />
+				<Route path='/register' element={<RegisterPage />} />
+			</Route>
+		</Routes>
 	);
 };
 
